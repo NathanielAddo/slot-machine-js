@@ -14,7 +14,7 @@ const deposit = () => {
  }
 };
 
-const depositAmount = deposit();
+let depositAmount = deposit();
 //2. Enter number of lines.
 const getNumberofLines = () => {
   while(true){
@@ -26,7 +26,23 @@ const getNumberofLines = () => {
     } else {
     return betLines;
   }
-}
+ }
 };
  
 const betLines = getNumberofLines();
+
+//3. Collect a bet amount 
+const bet = (depositAmount) => {
+  while(true){
+    const betAmount = prompt("Enter Amount you want to bet: ");
+    const betPlaced = parseFloat(betAmount);
+
+    if(isNaN(betPlaced) || betPlaced < 0 || betPlaced > depositAmount ){
+      console.log("Invalid bet amount, try again. ");
+    } else {
+      return betPlaced;
+    }
+  };
+
+};
+ const betAmount = bet(depositAmount); 
